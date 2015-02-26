@@ -7,6 +7,10 @@ gem "pg", "~> 0.18"
 gem "rails", "~> 4.2.0"
 gem "rails-api", "~> 0.4.0"
 
+group :production do
+  gem "rails_12factor"
+end
+
 group :development, :test do
   gem "rspec-rails", "~> 3.2"
 end
