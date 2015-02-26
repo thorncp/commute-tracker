@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "2.2.0"
 
 gem "active_model_serializers", "~> 0.8.3"
+gem "newrelic_rpm"
 gem "pg", "~> 0.18"
 gem "puma"
 gem "rails", "~> 4.2.0"
