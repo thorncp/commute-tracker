@@ -14,7 +14,12 @@ group :production do
 end
 
 group :development, :test do
+  gem "dotenv-rails"
   gem "rspec-rails", "~> 3.2"
+end
+
+group :development do
+  gem "pry-rails"
 end
 
 # To use ActiveModel has_secure_password
