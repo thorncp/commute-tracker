@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get "hello" => "home#hello", as: :hello
+  get "heartbeat" => "heartbeat#index"
+  get "hello" => "home#hello"
 end
