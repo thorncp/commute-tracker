@@ -12,8 +12,13 @@ class ApplicationController < ActionController::API
   end
 
   def check_token
-    authenticate_with_http_token do |token, _options|
-      token == ENV["AUTH_TOKEN"]
+    authenticate_with_http_token do |request_token, _options|
+      request_token.size == auth_token.size &&
+        ActiveSupport::SecurityUtils.secure_compare(request_token, auth_token)
     end
+  end
+
+  def auth_token
+    Rails.configuration.auth_token
   end
 end
