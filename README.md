@@ -6,7 +6,7 @@ JSON API for tracking commute times.
 
 ## Setup
 
-* Ruby 2.2.0
+* Ruby 2.2.1
 * Bundler
 * Postgres
 
