@@ -15,11 +15,14 @@ end
 
 group :development, :test do
   gem "dotenv-rails"
+  gem "factory_girl_rails"
+  gem "pry-rails"
   gem "rspec-rails", "~> 3.2"
 end
 
-group :development do
-  gem "pry-rails"
+group :test do
+  gem "database_cleaner"
+  gem "shoulda-matchers"
 end
 
 # To use ActiveModel has_secure_password

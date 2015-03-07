@@ -15,7 +15,6 @@ RSpec.describe "authentication" do
       get hello_path, nil, "HTTP_AUTHORIZATION" => "Token invalid-token"
 
       expect(response.status).to eq(401)
-      expect(JSON.parse(response.body)["error"]).to eq("Unauthorized")
     end
   end
 
@@ -24,7 +23,6 @@ RSpec.describe "authentication" do
       get hello_path
 
       expect(response.status).to eq(401)
-      expect(JSON.parse(response.body)["error"]).to eq("Unauthorized")
     end
   end
 end
