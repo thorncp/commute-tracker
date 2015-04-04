@@ -1,0 +1,13 @@
+<% if @in_progress_commute.present? %>
+  <p>Commute in progress</p>
+
+  <%= form_tag arrival_path do %>
+    <button>Arrive</button>
+  <% end %>
+<% else %>
+  <p> Ready to go?<p>
+
+  <%= form_tag departure_path do %>
+    <button>Depart</button>
+  <% end %>
+<% end %>

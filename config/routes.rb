@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   resources :commutes, only: [:index, :create, :update]
 
-  root to: "home#hello"
+  post "departure" => "home#depart"
+  post "arrival" => "home#arrive"
+
+  root to: "home#index"
 end

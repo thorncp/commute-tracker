@@ -4,4 +4,8 @@ class Commute < ActiveRecord::Base
   def self.by_departed_at
     order(departed_at: :desc)
   end
+
+  def self.in_progress
+    where(arrived_at: nil)
+  end
 end

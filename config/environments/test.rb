@@ -11,4 +11,5 @@ Rails.application.configure do
   config.static_cache_control = 'public, max-age=3600'
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   # config.action_mailer.delivery_method = :test
+  config.middleware.use Clearance::BackDoor
 end

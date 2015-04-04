@@ -16,4 +16,15 @@ RSpec.describe Commute do
       expect(commutes[1]).to eq(second)
     end
   end
+
+  describe ".in_progress" do
+    it "retunrs commutes not completed" do
+      first = create(:commute)
+      create(:commute, :completed)
+
+      commutes = Commute.in_progress
+
+      expect(commutes).to match_array [first]
+    end
+  end
 end
