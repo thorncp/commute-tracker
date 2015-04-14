@@ -1,13 +1,20 @@
 <% if @in_progress_commute.present? %>
-  <p>Commute in progress</p>
-
   <%= form_tag arrival_path do %>
     <button>Arrive</button>
   <% end %>
 <% else %>
-  <p> Ready to go?<p>
-
   <%= form_tag departure_path do %>
     <button>Depart</button>
   <% end %>
+<% end %>
+
+<% if @latest_commutes.any? %>
+  <table>
+    <% @latest_commutes.each do |commute| %>
+      <tr class="commute">
+        <td><%= commute.day %></td>
+        <td><%= commute.duration %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
