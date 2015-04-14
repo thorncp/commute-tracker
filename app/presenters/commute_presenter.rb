@@ -1,5 +1,5 @@
 class CommutePresenter
-  include ActionView::Helpers::DateHelper
+  include ActionView::Helpers::TextHelper
 
   def initialize(commute)
     @commute = commute
@@ -11,7 +11,7 @@ class CommutePresenter
 
   def duration
     if commute.arrived_at.present?
-      distance_of_time_in_words(commute.departed_at, commute.arrived_at)
+      pluralize(duration_minutes, "minute")
     else
       "in progress"
     end
@@ -20,4 +20,8 @@ class CommutePresenter
   private
 
   attr_reader :commute
+
+  def duration_minutes
+    ((commute.arrived_at - commute.departed_at) / 1.minute).to_i
+  end
 end
