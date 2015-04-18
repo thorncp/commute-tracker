@@ -13,5 +13,9 @@
  *= require_self
  */
 
-div.container {
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding-top: 70px;
 }
