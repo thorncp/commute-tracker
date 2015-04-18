@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 ruby "2.2.2"
 
-gem "active_model_serializers", "~> 0.8.3"
 gem "bootstrap-sass"
 gem "clearance"
 gem "newrelic_rpm"
