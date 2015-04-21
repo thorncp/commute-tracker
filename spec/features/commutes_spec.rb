@@ -11,21 +11,22 @@ RSpec.describe "Commutes" do
   end
 
   it "can be stopped" do
-    user = create(:user)
-    create(:commute)
+    commute = create(:commute)
 
-    visit root_path(as: user)
+    visit root_path(as: commute.user)
     click_button "Arrive"
 
     expect(page).not_to have_content "in progress"
   end
 
   it "lists the last five commute times" do
+    user = create(:user)
+
     1.upto(5) do |num|
-      create(:commute, :completed, departed_at: num.days.ago)
+      create(:commute, :completed, user: user, departed_at: num.days.ago)
     end
 
-    visit root_path(as: create(:user))
+    visit root_path(as: user)
 
     expect(page).to have_selector(".commute", count: 5)
   end

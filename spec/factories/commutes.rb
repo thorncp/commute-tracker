@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :commute do
+    user
     departed_at { 30.minutes.ago }
 
     trait :completed do

@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Commute do
+  describe "associations" do
+    it { should belong_to(:user) }
+  end
+
   describe "validations" do
     it { should validate_presence_of(:departed_at) }
   end
