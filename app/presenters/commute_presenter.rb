@@ -9,6 +9,10 @@ class CommutePresenter
     commute.departed_at.strftime("%A")
   end
 
+  def departed_at
+    commute.departed_at.iso8601
+  end
+
   def duration
     if commute.arrived_at.present?
       pluralize(duration_minutes, "minute")

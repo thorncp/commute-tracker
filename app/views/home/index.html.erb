@@ -14,7 +14,11 @@
   <table class="table table-striped">
     <% @latest_commutes.each do |commute| %>
       <tr class="commute">
-        <td><%= commute.day %></td>
+        <td>
+          <%= content_tag :time, datetime: commute.departed_at do %>
+            <%= commute.day %>
+          <% end %>
+        </td>
         <td><%= commute.duration %></td>
       </tr>
     <% end %>

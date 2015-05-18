@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+  var weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  $(".commute time").each(function() {
+    var commuteDate = new Date($(this).attr("datetime"));
+    var day = weekdays[commuteDate.getDay()];
+    $(this).text(day);
+  });
+});
