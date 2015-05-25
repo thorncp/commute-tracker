@@ -12,15 +12,18 @@
 
 <% if @latest_commutes.any? %>
   <table class="table table-striped">
-    <% @latest_commutes.each do |commute| %>
-      <tr class="commute">
-        <td>
-          <%= content_tag :time, datetime: commute.departed_at do %>
-            <%= commute.day %>
-          <% end %>
-        </td>
-        <td><%= commute.duration %></td>
-      </tr>
+    <%= content_tag_for :tr, @latest_commutes do |commute| %>
+      <td>
+        <%= content_tag :time, datetime: commute.departed_at do %>
+          <%= commute.day %>
+        <% end %>
+      </td>
+      <td><%= commute.duration %></td>
+      <td>
+        <%= link_to commute, method: :delete, class: "delete", data: { confirm: "Really?" } do %>
+          <span class="glyphicon glyphicon-remove text-danger"></span>
+        <% end %>
+      </td>
     <% end %>
   </table>
 <% end %>

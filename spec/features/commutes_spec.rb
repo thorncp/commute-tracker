@@ -30,4 +30,15 @@ RSpec.describe "Commutes" do
 
     expect(page).to have_selector(".commute", count: 5)
   end
+
+  it "can be deleted" do
+    user = create(:user)
+    commute = create(:commute, user: user)
+
+    visit root_path(as: user)
+
+    within "#commute_#{commute.id}" do
+      expect(page).to have_selector "a.delete[data-method='delete']"
+    end
+  end
 end

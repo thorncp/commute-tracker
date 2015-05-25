@@ -1,6 +1,8 @@
 class CommutePresenter
   include ActionView::Helpers::TextHelper
 
+  delegate :model_name, :to_key, :to_model, to: :commute
+
   def initialize(commute)
     @commute = commute
   end

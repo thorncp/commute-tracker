@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   post "departure" => "home#depart"
   post "arrival" => "home#arrive"
 
+  resources :commutes, only: [:destroy]
+
   root to: "home#index"
 end
