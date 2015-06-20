@@ -7,7 +7,7 @@ gem "clearance"
 gem "newrelic_rpm"
 gem "pg", "~> 0.18"
 gem "puma"
-gem "rails", "~> 4.2.0"
+gem "rails", "4.2.2"
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
