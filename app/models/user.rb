@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include Clearance::User
 
   has_many :commutes, dependent: :destroy
+  has_many :daily_averages
 
   validates(
     :timezone,
