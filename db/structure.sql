@@ -82,7 +82,8 @@ CREATE TABLE users (
     email character varying NOT NULL,
     encrypted_password character varying(128) NOT NULL,
     confirmation_token character varying(128),
-    remember_token character varying(128) NOT NULL
+    remember_token character varying(128) NOT NULL,
+    timezone character varying DEFAULT 'US/Pacific'::character varying NOT NULL
 );
 
 
@@ -182,4 +183,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150307200653');
 INSERT INTO schema_migrations (version) VALUES ('20150404214043');
 
 INSERT INTO schema_migrations (version) VALUES ('20150421021158');
+
+INSERT INTO schema_migrations (version) VALUES ('20150628194304');
 

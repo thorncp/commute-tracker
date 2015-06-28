@@ -6,5 +6,6 @@ FactoryGirl.define do
   factory :user do
     email
     password "password"
+    timezone "UTC"
   end
 end
