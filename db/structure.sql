@@ -63,15 +63,6 @@ ALTER SEQUENCE commutes_id_seq OWNED BY commutes.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE schema_migrations (
-    version character varying NOT NULL
-);
-
-
---
 -- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -84,6 +75,35 @@ CREATE TABLE users (
     confirmation_token character varying(128),
     remember_token character varying(128) NOT NULL,
     timezone character varying DEFAULT 'US/Pacific'::character varying NOT NULL
+);
+
+
+--
+-- Name: daily_averages; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW daily_averages AS
+ WITH zone_converted AS (
+         SELECT commutes.user_id,
+            timezone((users.timezone)::text, timezone('UTC'::text, commutes.departed_at)) AS departed_at,
+            timezone((users.timezone)::text, timezone('UTC'::text, commutes.arrived_at)) AS arrived_at
+           FROM (commutes
+             JOIN users ON ((users.id = commutes.user_id)))
+        )
+ SELECT zone_converted.user_id,
+    (date_part('dow'::text, zone_converted.departed_at))::integer AS day_of_week,
+    date_part('epoch'::text, (avg((zone_converted.arrived_at - zone_converted.departed_at)) / (60)::double precision)) AS duration,
+    count(*) AS count
+   FROM zone_converted
+  GROUP BY (date_part('dow'::text, zone_converted.departed_at))::integer, zone_converted.user_id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
 );
 
 
@@ -185,4 +205,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150404214043');
 INSERT INTO schema_migrations (version) VALUES ('20150421021158');
 
 INSERT INTO schema_migrations (version) VALUES ('20150628194304');
+
+INSERT INTO schema_migrations (version) VALUES ('20150628200148');
 
