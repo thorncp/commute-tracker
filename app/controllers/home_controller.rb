@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @latest_commutes = latest_commutes
     @in_progress_commute = user_commutes.in_progress.first
+    @daily_averages = user_daily_averages
   end
 
   def depart
@@ -26,5 +27,11 @@ class HomeController < ApplicationController
 
   def user_commutes
     current_user.commutes
+  end
+
+  def user_daily_averages
+    current_user.daily_averages.by_day.map do |daily_average|
+      DailyAveragePresenter.new(daily_average)
+    end
   end
 end

@@ -21,10 +21,7 @@ RSpec.describe "Commutes" do
 
   it "lists the last five commute times" do
     user = create(:user)
-
-    1.upto(5) do |num|
-      create(:commute, :completed, user: user, departed_at: num.days.ago)
-    end
+    create_list(:commute, 7, :completed, user: user)
 
     visit root_path(as: user)
 

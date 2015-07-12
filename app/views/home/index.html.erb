@@ -11,6 +11,8 @@
 <hr/>
 
 <% if @latest_commutes.any? %>
+  <h2>Recent Commutes</h2>
+
   <table class="table table-striped">
     <%= content_tag_for :tr, @latest_commutes do |commute| %>
       <td>
@@ -24,6 +26,17 @@
           <span class="glyphicon glyphicon-remove text-danger"></span>
         <% end %>
       </td>
+    <% end %>
+  </table>
+<% end %>
+
+<% if @daily_averages.any? %>
+  <h2>Daily Averages</h2>
+
+  <table class="table table-striped daily">
+    <%= content_tag_for :tr, @daily_averages do |daily_average| %>
+      <td><%= daily_average.day %></td>
+      <td><%= daily_average.duration %></td>
     <% end %>
   </table>
 <% end %>

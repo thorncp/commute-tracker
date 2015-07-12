@@ -42,4 +42,26 @@ RSpec.describe DailyAverage do
       expect(daily_average.duration).to be_within(1).of(expected_average)
     end
   end
+
+  describe ".by_day" do
+    it "orders the stats by day of week" do
+      create(:commute, :completed, departed_at: Chronic.parse("wednesday"))
+      create(:commute, :completed, departed_at: Chronic.parse("tuesday"))
+      create(:commute, :completed, departed_at: Chronic.parse("friday"))
+      create(:commute, :completed, departed_at: Chronic.parse("monday"))
+      create(:commute, :completed, departed_at: Chronic.parse("thursday"))
+
+      averages = DailyAverage.by_day
+
+      expect(averages[0].day_of_week).to eq 1
+      expect(averages[1].day_of_week).to eq 2
+      expect(averages[2].day_of_week).to eq 3
+      expect(averages[3].day_of_week).to eq 4
+      expect(averages[4].day_of_week).to eq 5
+    end
+  end
+
+  def create_commute_on(day)
+    create(:commute, :completed, departed_at: Chronic.parse(day))
+  end
 end

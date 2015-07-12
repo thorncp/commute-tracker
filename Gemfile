@@ -21,6 +21,7 @@ group :production do
 end
 
 group :development, :test do
+  gem "chronic"
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "pry-rails"
