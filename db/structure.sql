@@ -89,6 +89,7 @@ CREATE VIEW daily_averages AS
             timezone((users.timezone)::text, timezone('UTC'::text, commutes.arrived_at)) AS arrived_at
            FROM (commutes
              JOIN users ON ((users.id = commutes.user_id)))
+          WHERE (commutes.arrived_at IS NOT NULL)
         )
  SELECT zone_converted.user_id,
     (date_part('dow'::text, zone_converted.departed_at))::integer AS day_of_week,
@@ -207,4 +208,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150421021158');
 INSERT INTO schema_migrations (version) VALUES ('20150628194304');
 
 INSERT INTO schema_migrations (version) VALUES ('20150628200148');
+
+INSERT INTO schema_migrations (version) VALUES ('20150712191827');
 

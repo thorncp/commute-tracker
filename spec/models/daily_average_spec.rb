@@ -7,6 +7,12 @@ RSpec.describe DailyAverage do
 
   it { should be_readonly }
 
+  it "does not include incomplete commutes" do
+    create(:commute, arrived_at: nil)
+
+    expect(DailyAverage.all).to be_empty
+  end
+
   describe "#duration" do
     it "is the average duration in minutes for commutes on a day of week" do
       user = create(:user)

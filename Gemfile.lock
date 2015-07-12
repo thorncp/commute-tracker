@@ -166,6 +166,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    scenic (0.3.0)
+      activerecord (>= 4.0.0)
+      railties (>= 4.0.0)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
     slop (3.6.0)
@@ -213,6 +216,7 @@ DEPENDENCIES
   rails_12factor
   rspec-rails (~> 3.2)
   sass-rails (~> 5.0)
+  scenic
   shoulda-matchers
   tzinfo
   tzinfo-data
@@ -220,4 +224,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.4
+   1.10.5
