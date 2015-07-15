@@ -21,10 +21,10 @@ group :production do
 end
 
 group :development, :test do
+  gem "byebug"
   gem "chronic"
   gem "dotenv-rails"
   gem "factory_girl_rails"
-  gem "pry-rails"
   gem "rspec-rails", "~> 3.2"
   gem "web-console", "~> 2.0"
 end
