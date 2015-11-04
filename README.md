@@ -2,17 +2,4 @@
 
 [![Build Status](https://travis-ci.org/thorncp/commute-tracker.svg?branch=master)](https://travis-ci.org/thorncp/commute-tracker)
 
-JSON API for tracking commute times.
-
-## Setup
-
-* Ruby 2.2.1
-* Bundler
-* Postgres
-
-## Local Testing
-
-```
-% curl -H "Authorization: Token commuter-token" http://localhost:3000/hello
-{"message":"Hello, World!"}
-```
+A simple web app for tracking commute times.
