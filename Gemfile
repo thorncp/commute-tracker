@@ -21,6 +21,7 @@ group :production do
 end
 
 group :development, :test do
+  gem "bundler-audit", require: false
   gem "byebug"
   gem "chronic"
   gem "dotenv-rails"
