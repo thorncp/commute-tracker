@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "bundler"
 gem "lotus-model", "~> 0.5"
-gem "lotusrb",     "0.5.0"
+gem "lotusrb", "0.5.0"
 gem "pg"
 gem "puma"
 gem "rake"
