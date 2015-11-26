@@ -1,6 +1,6 @@
 require "lotus/model"
 require "lotus/mailer"
-Dir["#{ __dir__ }/commute-tracker/**/*.rb"].each { |file| require_relative file }
+Dir["#{ __dir__ }/commute_tracker/**/*.rb"].each { |file| require_relative file }
 
 Lotus::Model.configure do
   ##
@@ -9,12 +9,12 @@ Lotus::Model.configure do
   # Available options:
   #
   #  * Memory adapter
-  #    adapter type: :memory, uri: "memory://localhost/commute-tracker_development"
+  #    adapter type: :memory, uri: "memory://localhost/commute_tracker_development"
   #
   #  * SQL adapter
-  #    adapter type: :sql, uri: "sqlite://db/commute-tracker_development.sqlite3"
-  #    adapter type: :sql, uri: "postgres://localhost/commute-tracker_development"
-  #    adapter type: :sql, uri: "mysql://localhost/commute-tracker_development"
+  #    adapter type: :sql, uri: "sqlite://db/commute_tracker_development.sqlite3"
+  #    adapter type: :sql, uri: "postgres://localhost/commute_tracker_development"
+  #    adapter type: :sql, uri: "mysql://localhost/commute_tracker_development"
   #
   adapter type: :sql, uri: ENV["COMMUTE_TRACKER_DATABASE_URL"]
 
@@ -47,7 +47,7 @@ Lotus::Model.configure do
 end.load!
 
 Lotus::Mailer.configure do
-  root "#{ __dir__ }/commute-tracker/mailers"
+  root "#{ __dir__ }/commute_tracker/mailers"
 
   # See http://lotusrb.org/guides/mailers/delivery
   delivery do
