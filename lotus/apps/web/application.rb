@@ -1,4 +1,4 @@
-require 'lotus/helpers'
+require "lotus/helpers"
 
 module Web
   class Application < Lotus::Application
@@ -16,8 +16,8 @@ module Web
       # When you add new directories, remember to add them here.
       #
       load_paths << [
-        'controllers',
-        'views'
+        "controllers",
+        "views"
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
@@ -33,17 +33,17 @@ module Web
       # Routes definitions for this application
       # See: http://www.rubydoc.info/gems/lotus-router#Usage
       #
-      routes 'config/routes'
+      routes "config/routes"
 
       # URI scheme used by the routing system to generate absolute URLs
       # Defaults to "http"
       #
-      # scheme 'https'
+      # scheme "https"
 
       # URI host used by the routing system to generate absolute URLs
       # Defaults to "localhost"
       #
-      # host 'example.org'
+      # host "example.org"
 
       # URI port used by the routing system to generate absolute URLs
       # Argument: An object coercible to integer, default to 80 if the scheme is http and 443 if it's https
@@ -73,7 +73,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      # sessions :cookie, secret: ENV["WEB_SESSIONS_SECRET"]
 
       # Configure Rack middleware for this application
       #
@@ -111,7 +111,7 @@ module Web
 
       # The relative path to templates
       #
-      templates 'templates'
+      templates "templates"
 
       ##
       # ASSETS
@@ -121,7 +121,7 @@ module Web
       # The directory `public/` is added by default
       #
       # assets << [
-      #   'vendor/javascripts'
+      #   "vendor/javascripts"
       # ]
 
       # Enabling serving assets
@@ -227,8 +227,8 @@ module Web
     # PRODUCTION
     #
     configure :production do
-      # scheme 'https'
-      # host   'example.org'
+      # scheme "https"
+      # host   "example.org"
       # port   443
     end
   end

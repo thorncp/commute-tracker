@@ -1,5 +1,5 @@
-require 'lotus/model'
-require 'lotus/mailer'
+require "lotus/model"
+require "lotus/mailer"
 Dir["#{ __dir__ }/commute-tracker/**/*.rb"].each { |file| require_relative file }
 
 Lotus::Model.configure do
@@ -9,20 +9,20 @@ Lotus::Model.configure do
   # Available options:
   #
   #  * Memory adapter
-  #    adapter type: :memory, uri: 'memory://localhost/commute-tracker_development'
+  #    adapter type: :memory, uri: "memory://localhost/commute-tracker_development"
   #
   #  * SQL adapter
-  #    adapter type: :sql, uri: 'sqlite://db/commute-tracker_development.sqlite3'
-  #    adapter type: :sql, uri: 'postgres://localhost/commute-tracker_development'
-  #    adapter type: :sql, uri: 'mysql://localhost/commute-tracker_development'
+  #    adapter type: :sql, uri: "sqlite://db/commute-tracker_development.sqlite3"
+  #    adapter type: :sql, uri: "postgres://localhost/commute-tracker_development"
+  #    adapter type: :sql, uri: "mysql://localhost/commute-tracker_development"
   #
-  adapter type: :sql, uri: ENV['COMMUTE_TRACKER_DATABASE_URL']
+  adapter type: :sql, uri: ENV["COMMUTE_TRACKER_DATABASE_URL"]
 
   ##
   # Migrations
   #
-  migrations 'db/migrations'
-  schema     'db/schema.sql'
+  migrations "db/migrations"
+  schema     "db/schema.sql"
 
   ##
   # Database mapping
@@ -53,6 +53,6 @@ Lotus::Mailer.configure do
   delivery do
     development :test
     test        :test
-    # production :stmp, address: ENV['SMTP_PORT'], port: 1025
+    # production :stmp, address: ENV["SMTP_PORT"], port: 1025
   end
 end.load!
